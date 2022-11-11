@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:MyColleagueIsRobot"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="/Styles/style.xaml"/>
     </Application.Resources>
 </Application>
