@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyColleagueIsRobot.Game_Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace MyColleagueIsRobot
 {
@@ -20,9 +22,26 @@ namespace MyColleagueIsRobot
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainMenu mainMenu { get; } = new MainMenu();
+        private Game game { get; } = new Game();
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            LoadMenu();       
+            
         }
+
+        public void LoadMenu()
+        {
+            contentFrame.Navigate(mainMenu);
+        }
+
+        public void LoadGame()
+        {
+            contentFrame.Navigate(game);
+        }
+
+       
     }
 }

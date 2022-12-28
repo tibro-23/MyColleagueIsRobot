@@ -20,9 +20,17 @@ namespace MyColleagueIsRobot.controls
     /// </summary>
     public partial class CommandTemplate : UserControl
     {
+        public Type? CommandType { get; set; } = null;
         public CommandTemplate()
         {
             InitializeComponent();
+        }
+
+        public CommandTemplate(Type type)
+        {
+            InitializeComponent();
+            CommandType = type;
+            Komenda.Content = type.Name;
         }
     }
 }

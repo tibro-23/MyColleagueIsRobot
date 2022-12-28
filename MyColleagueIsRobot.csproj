@@ -9,10 +9,18 @@
 
   <ItemGroup>
     <None Remove="resources\images\grass_background.jpg" />
+    <None Remove="resources\images\menu_background.jpg" />
+    <None Remove="resources\music\background_music.mp3" />
+    <None Remove="resources\music\background_music.wav" />
+    <None Remove="resources\music\sneaky-snitch.mp3" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="resources\images\grass_background.jpg" />
+    <Resource Include="resources\images\menu_background.jpg" />
+    <Resource Include="resources\music\background_music.wav">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
