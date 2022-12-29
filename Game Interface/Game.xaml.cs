@@ -21,11 +21,22 @@ namespace MyColleagueIsRobot.Game_Interface
     /// </summary>
     public partial class Game : Page
     {
+       
         public Game()
         {
             InitializeComponent();
-            StakPanel.Children.Add(new CommandTemplate(typeof(double)));
-            StakPanel.Children.Add(new CommandTemplate(typeof(int)));
+            StakPanel.Children.Add(new CommandTemplate("GoControl"));
+            StakPanel.Children.Add(new CommandTemplate("LONIAK"));
+            //StakPanel.Children.Add(new GoControl(typeof(string)));
         }
+
+        private void back_button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow? mainWindow = App.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+                mainWindow.BackToMenu();
+        }
+
+        
     }
 }

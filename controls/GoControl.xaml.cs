@@ -16,23 +16,22 @@ using System.Windows.Shapes;
 namespace MyColleagueIsRobot.controls
 {
     /// <summary>
-    /// Interaction logic for InstructionContainer.xaml
+    /// Interaction logic for GoControl.xaml
     /// </summary>
-    public partial class InstructionContainer : UserControl
+    public partial class GoControl : UserControl
     {
-        public InstructionContainer()
+        public Type? GoType { get; set; } = null;
+        public GoControl()
         {
             InitializeComponent();
         }
 
-        private void sort_up_Click(object sender, RoutedEventArgs e)
+        public GoControl(Type type)
         {
-
+            InitializeComponent();
+            GoType = type;
+            GoCommand.Content = type.Name;
         }
 
-        private void sort_down_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -42,6 +42,10 @@ namespace MyColleagueIsRobot
             contentFrame.Navigate(game);
         }
 
+        public void BackToMenu()
+        {
+            contentFrame.Navigate(mainMenu);
+        }
        
     }
 }

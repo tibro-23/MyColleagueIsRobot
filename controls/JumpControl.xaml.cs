@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace MyColleagueIsRobot.controls
 {
     /// <summary>
-    /// Interaction logic for InstructionContainer.xaml
+    /// Interaction logic for JumpControl.xaml
     /// </summary>
-    public partial class InstructionContainer : UserControl
+    public partial class JumpControl : UserControl
     {
-        public InstructionContainer()
+        public JumpControl()
         {
             InitializeComponent();
-        }
-
-        private void sort_up_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void sort_down_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

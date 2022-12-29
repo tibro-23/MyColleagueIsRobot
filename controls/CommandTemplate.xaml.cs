@@ -20,17 +20,31 @@ namespace MyColleagueIsRobot.controls
     /// </summary>
     public partial class CommandTemplate : UserControl
     {
-        public Type? CommandType { get; set; } = null;
+        public String CommandType { get; set; } = "";
         public CommandTemplate()
         {
             InitializeComponent();
         }
 
-        public CommandTemplate(Type type)
+        public CommandTemplate(String name)
         {
             InitializeComponent();
-            CommandType = type;
-            Komenda.Content = type.Name;
+            CommandType = name;
+            Komenda.Content = name;
         }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                DataObject data = new DataObject();
+                data.SetData("Name",CommandType);
+                
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Move);
+            }
+        }
+
     }
 }
