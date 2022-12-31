@@ -18,8 +18,15 @@ namespace MyColleagueIsRobot.controls
     /// <summary>
     /// Interaction logic for InstrukcjePanel.xaml
     /// </summary>
+    class ZmienneGlobalne
+    {
+        private static int idInstrukcji = 0;
+        public static int IdInstrukcji { get { return idInstrukcji; } set { idInstrukcji = value; } }
+    }
     public partial class InstrukcjePanel : UserControl
     {
+        
+
         public InstrukcjePanel()
         {
             InitializeComponent();
@@ -36,15 +43,25 @@ namespace MyColleagueIsRobot.controls
                 switch (name)
                 {
                     case "GoControl":
-                            
-                        // Panel.Children.Add(new InstructionContainer(new GoControl()));
-                        Panel.Children.Add(new CommandTemplate("GoControl"));
+                        ZmienneGlobalne.IdInstrukcji++;
+                        Panel.Children.Add(new InstructionContainer(new GoControl(), ZmienneGlobalne.IdInstrukcji,this));
+                        //Panel.Children.Add(new CommandTemplate("GoControl"));
                         break;
+
+                    case "JumpControl":
+                        ZmienneGlobalne.IdInstrukcji++;
+                        Panel.Children.Add(new InstructionContainer(new JumpControl(),ZmienneGlobalne.IdInstrukcji,this));
+                       // Panel.Children.Add(new CommandTemplate("JumpControl"));
+                        break;
+                    
+                       
                 }
                 e.Effects = DragDropEffects.Copy;
             }
 
             e.Handled = true;
+            
+            
         }
     }
 }

@@ -20,9 +20,17 @@ namespace MyColleagueIsRobot.controls
     /// </summary>
     public partial class JumpControl : UserControl
     {
+        public Type? JumpType { get; set; } = null;
         public JumpControl()
         {
             InitializeComponent();
+        }
+
+        public JumpControl(Type type)
+        {
+            InitializeComponent();
+            JumpType = type;
+            JumpCommand.Content = type.Name;
         }
     }
 }

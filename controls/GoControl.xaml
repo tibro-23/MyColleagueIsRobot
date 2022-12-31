@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         <Border Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="8" Background="SlateGray" Margin="0 10 0 10">
             <Grid>
-                <Label x:Name="GoCommand" Content="KOMENDA" FontSize="15" FontWeight="Bold" Style="{StaticResource StandardLabel}" Foreground="Black" VerticalContentAlignment="Center" Margin="0 10 0 10"/>
+                <Label x:Name="GoCommand" Content="Go Control" FontSize="15" FontWeight="Bold" Style="{StaticResource StandardLabel}" Foreground="Black" VerticalContentAlignment="Center" Margin="0 10 0 10"/>
             </Grid>
         </Border>
     </Grid>

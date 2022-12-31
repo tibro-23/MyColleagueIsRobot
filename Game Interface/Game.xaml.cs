@@ -26,8 +26,9 @@ namespace MyColleagueIsRobot.Game_Interface
         {
             InitializeComponent();
             StakPanel.Children.Add(new CommandTemplate("GoControl"));
-            StakPanel.Children.Add(new CommandTemplate("LONIAK"));
+            StakPanel.Children.Add(new CommandTemplate("JumpControl"));
             //StakPanel.Children.Add(new GoControl(typeof(string)));
+            // StakPanel.Children.Add(new CommandTemplate("LONIAK"));
         }
 
         private void back_button_Click(object sender, RoutedEventArgs e)
