@@ -73,6 +73,40 @@
                         <RowDefinition Height="10*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0"> <!--Pole do gry-->
+                        <Grid.Background>
+                            <ImageBrush Stretch="Fill" AlignmentX="Center" AlignmentY="Center" 
+                                        ImageSource="/resources/images/pole_gry.jpg"/>
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="22*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1*"/>
+                            <RowDefinition Height="23*"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                            <!--SIATKA GRY-->
+                        <Grid Grid.Row="1" Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                        </Grid>
+                    </Grid>
                     <Grid Grid.Column="0" Grid.Row="1" Background="MediumSpringGreen">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"/>

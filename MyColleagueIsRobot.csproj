@@ -12,6 +12,7 @@
     <None Remove="resources\images\down_arrow.jpg" />
     <None Remove="resources\images\grass_background.jpg" />
     <None Remove="resources\images\menu_background.jpg" />
+    <None Remove="resources\images\pole_gry.jpg" />
     <None Remove="resources\images\up_arrow.jpg" />
     <None Remove="resources\music\background_music.mp3" />
     <None Remove="resources\music\background_music.wav" />
@@ -23,6 +24,7 @@
     <Resource Include="resources\images\down_arrow.jpg" />
     <Resource Include="resources\images\grass_background.jpg" />
     <Resource Include="resources\images\menu_background.jpg" />
+    <Resource Include="resources\images\pole_gry.jpg" />
     <Resource Include="resources\images\up_arrow.jpg" />
     <Resource Include="resources\music\background_music.wav">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
