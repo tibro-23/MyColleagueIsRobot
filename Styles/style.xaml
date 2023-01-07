@@ -71,7 +71,9 @@
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontFamily" Value="Tunga"/>
     </Style>
-    
-    
-    
+
+    <SolidColorBrush x:Key="OddTile" Color="DarkGray"/>
+    <SolidColorBrush x:Key="EvenTile" Color="LightGray"/>
+
+
 </ResourceDictionary>

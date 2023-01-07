@@ -20,8 +20,7 @@ namespace MyColleagueIsRobot.Game_Interface
     /// Interaction logic for Game.xaml
     /// </summary>
     public partial class Game : Page
-    {
-       
+    {  
         public Game()
         {
             InitializeComponent();
@@ -38,6 +37,5 @@ namespace MyColleagueIsRobot.Game_Interface
                 mainWindow.BackToMenu();
         }
 
-        
     }
 }

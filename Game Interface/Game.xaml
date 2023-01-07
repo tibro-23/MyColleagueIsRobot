@@ -73,7 +73,8 @@
                         <RowDefinition Height="10*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Column="0" Grid.Row="0"> <!--Pole do gry-->
+                    <Grid Grid.Column="0" Grid.Row="0">
+                        <!--Pole do gry-->
                         <Grid.Background>
                             <ImageBrush Stretch="Fill" AlignmentX="Center" AlignmentY="Center" 
                                         ImageSource="/resources/images/pole_gry.jpg"/>
@@ -88,8 +89,8 @@
                             <RowDefinition Height="23*"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
-                            <!--SIATKA GRY-->
-                        <Grid Grid.Row="1" Grid.Column="1">
+                        <!--SIATKA GRY-->
+                        <!--<Grid Grid.Row="1" Grid.Column="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
@@ -105,7 +106,70 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
-                        </Grid>
+                        </Grid>-->
+                        <UniformGrid x:Name="Pole_Gry" Grid.Row="1" Grid.Column="1" Columns="8" Rows="6">
+                            <!-- Row 0-->
+                            <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="0" Grid.Column="1" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="0" Grid.Column="2" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="0" Grid.Column="3" Background="{StaticResource EvenTile}">
+                                <control:Player/>
+                            </Grid>
+                            <Grid Grid.Row="0" Grid.Column="4" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="0" Grid.Column="5" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="0" Grid.Column="6" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="0" Grid.Column="7" Background="{StaticResource EvenTile}"></Grid>
+                            
+                            <!-- Row 1-->
+                            <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="1" Grid.Column="2" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="1" Grid.Column="3" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="1" Grid.Column="4" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="1" Grid.Column="5" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="1" Grid.Column="6" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="1" Grid.Column="7" Background="{StaticResource OddTile}"></Grid>
+
+                            <!-- Row 2-->
+                            <Grid Grid.Row="2" Grid.Column="0" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="2" Grid.Column="2" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="2" Grid.Column="3" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="2" Grid.Column="4" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="2" Grid.Column="5" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="2" Grid.Column="6" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="2" Grid.Column="7" Background="{StaticResource EvenTile}"></Grid>
+
+                            <!-- Row 3-->
+                            <Grid Grid.Row="3" Grid.Column="0" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="3" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="3" Grid.Column="2" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="3" Grid.Column="3" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="3" Grid.Column="4" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="3" Grid.Column="5" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="3" Grid.Column="6" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="3" Grid.Column="7" Background="{StaticResource OddTile}"></Grid>
+
+                            <!-- Row 4-->
+                            <Grid Grid.Row="4" Grid.Column="0" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="4" Grid.Column="1" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="4" Grid.Column="2" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="4" Grid.Column="3" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="4" Grid.Column="4" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="4" Grid.Column="5" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="4" Grid.Column="6" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="4" Grid.Column="7" Background="{StaticResource EvenTile}"></Grid>
+
+                            <!-- Row 5-->
+                            <Grid Grid.Row="5" Grid.Column="0" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="5" Grid.Column="1" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="5" Grid.Column="2" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="5" Grid.Column="3" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="5" Grid.Column="4" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="5" Grid.Column="5" Background="{StaticResource OddTile}"></Grid>
+                            <Grid Grid.Row="5" Grid.Column="6" Background="{StaticResource EvenTile}"></Grid>
+                            <Grid Grid.Row="5" Grid.Column="7" Background="{StaticResource OddTile}"></Grid>
+                        </UniformGrid>
                     </Grid>
                     <Grid Grid.Column="0" Grid.Row="1" Background="MediumSpringGreen">
                         <Grid.ColumnDefinitions>
@@ -122,9 +186,9 @@
                             <RowDefinition Height="8*"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
-                        <Button Grid.Column="1" Grid.Row="1" x:Name="stop_button" Style="{StaticResource RoundCorner}"/>
-                        <Button Grid.Column="3" Grid.Row="1" x:Name="start_button" Style="{StaticResource RoundCorner}"/>
-                        <Button Grid.Column="5" Grid.Row="1" x:Name="reset_button" Style="{StaticResource RoundCorner}"/>
+                        <Button Grid.Column="1" Grid.Row="1" x:Name="stop_button" Style="{StaticResource RoundCorner}" Content="STOP" FontSize="25"/>
+                        <Button Grid.Column="3" Grid.Row="1" x:Name="start_button" Style="{StaticResource RoundCorner}" Content="START" FontSize="25"/>
+                        <Button Grid.Column="5" Grid.Row="1" x:Name="reset_button" Style="{StaticResource RoundCorner}" Content="RESET" FontSize="25"/>
                     </Grid>
                 </Grid>
             </Border>

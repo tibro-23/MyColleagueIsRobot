@@ -11,6 +11,7 @@
     <None Remove="resources\images\back.png" />
     <None Remove="resources\images\down_arrow.jpg" />
     <None Remove="resources\images\grass_background.jpg" />
+    <None Remove="resources\images\kerfus_288px.png" />
     <None Remove="resources\images\menu_background.jpg" />
     <None Remove="resources\images\pole_gry.jpg" />
     <None Remove="resources\images\up_arrow.jpg" />
@@ -20,15 +21,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="resources\images\kerfus_288px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="resources\images\back.png" />
     <Resource Include="resources\images\down_arrow.jpg" />
     <Resource Include="resources\images\grass_background.jpg" />
     <Resource Include="resources\images\menu_background.jpg" />
     <Resource Include="resources\images\pole_gry.jpg" />
     <Resource Include="resources\images\up_arrow.jpg" />
-    <Resource Include="resources\music\background_music.wav">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
+    <Content Include="resources\music\background_music.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
