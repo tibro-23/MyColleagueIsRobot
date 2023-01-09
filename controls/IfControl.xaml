@@ -19,7 +19,40 @@
         </Grid.RowDefinitions>
         <Border Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="8" Background="SlateGray" Margin="0 10 0 10">
             <Grid>
-                <Label x:Name="IfCommand" Content="KOMENDA" FontSize="15" FontWeight="Bold" Style="{StaticResource StandardLabel}" Foreground="Black" VerticalContentAlignment="Center" Margin="0 10 0 10"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="IfCommand" Content="If" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" FontSize="15" FontWeight="Bold" Style="{StaticResource StandardLabel}" Foreground="Black" VerticalContentAlignment="Center" Margin="0 10 0 10"/>
+                <ComboBox x:Name="Direction" IsEditable="False" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" SelectedIndex="0">
+                    <ComboBoxItem>UP</ComboBoxItem>
+                    <ComboBoxItem>DOWN</ComboBoxItem>
+                    <ComboBoxItem>LEFT</ComboBoxItem>
+                    <ComboBoxItem>RIGHT</ComboBoxItem>
+                </ComboBox>
+                <Label x:Name="Is" Content="is" Grid.Column="4" Grid.Row="0" Grid.RowSpan="3" FontSize="15" FontWeight="Bold" Style="{StaticResource StandardLabel}" Foreground="Black" VerticalContentAlignment="Center" Margin="0 10 0 10"/>
+                <ComboBox x:Name="Condition" IsEditable="False" Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="3" SelectedIndex="0">
+                    <ComboBoxItem>WALL</ComboBoxItem>
+                    <ComboBoxItem>OBJECT</ComboBoxItem>
+                </ComboBox>
+                <Label x:Name="Then" Content="then" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="3" FontSize="15" FontWeight="Bold" Style="{StaticResource StandardLabel}" Foreground="Black" VerticalContentAlignment="Center" Margin="0 10 0 10"/>
+                <ComboBox x:Name="Destination" IsEditable="False" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" SelectedIndex="0" ItemsSource="{Binding Source={x:Static local:ZmienneGlobalne.ids}}"/>
+                <Label x:Name="Else" Content="else" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="3" FontSize="15" FontWeight="Bold" Style="{StaticResource StandardLabel}" Foreground="Black" VerticalContentAlignment="Center" Margin="0 10 0 10"/>
+                <ComboBox x:Name="AltDestination" IsEditable="False" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="3" SelectedIndex="0" ItemsSource="{Binding Source={x:Static local:ZmienneGlobalne.ids}}"/>
             </Grid>
         </Border>
     </Grid>

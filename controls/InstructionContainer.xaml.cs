@@ -80,7 +80,7 @@ namespace MyColleagueIsRobot.controls
                 if ((int)this.NumerInstrukcji.Content >= 0)
                 {
                     this.instrukcjePanel.Panel.Children.RemoveAt((int)this.NumerInstrukcji.Content - 1);
-                    ZmienneGlobalne.IdInstrukcji--;
+                    ZmienneGlobalne.ZmniejszID();
                     foreach (InstructionContainer container in this.instrukcjePanel.Panel.Children)
                     {
                         if ((int)container.NumerInstrukcji.Content > (int)this.NumerInstrukcji.Content)

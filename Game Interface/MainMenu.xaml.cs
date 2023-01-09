@@ -22,6 +22,7 @@ namespace MyColleagueIsRobot.Game_Interface
     /// </summary>
     public partial class MainMenu : Page
     {
+        private static readonly SoundPlayer clickSound = new SoundPlayer(@"resources/music/click_sound.wav");
         public MainMenu()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace MyColleagueIsRobot.Game_Interface
 
         private void exit_button_Click(object sender, RoutedEventArgs e)
         {
+            clickSound.Play();
             MainWindow? mainWindow = App.Current.MainWindow as MainWindow;
             if(mainWindow != null)
                 mainWindow.Close();
@@ -36,9 +38,20 @@ namespace MyColleagueIsRobot.Game_Interface
 
         private void new_game_button_Click(object sender, RoutedEventArgs e)
         {
+            clickSound.Play();
             MainWindow? mainWindow = App.Current.MainWindow as MainWindow;
             if (mainWindow != null)
-                mainWindow.LoadGame();
+            {
+                // otworz okno 
+                LevelChoseWindow dialog = new LevelChoseWindow();
+                // showdialog
+                dialog.Owner = mainWindow;
+                dialog.ShowDialog();
+                int level = dialog.NumerPoziomu;
+
+                        
+                mainWindow.LoadGame(level);
+            }
         }
     }
 }

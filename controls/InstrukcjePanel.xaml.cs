@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +23,22 @@ namespace MyColleagueIsRobot.controls
     class ZmienneGlobalne
     {
         private static int idInstrukcji = 0;
+
+        public static ObservableCollection<int> ids { get; set; } = new ObservableCollection<int>();
+
         public static int IdInstrukcji { get { return idInstrukcji; } set { idInstrukcji = value; } }
+
+        public static void ZwiększID() 
+        { 
+            idInstrukcji++; 
+            ids.Add(idInstrukcji); 
+        }
+
+        public static void ZmniejszID() 
+        { 
+            idInstrukcji--; 
+            ids.RemoveAt(idInstrukcji);
+        }
     }
     public partial class InstrukcjePanel : UserControl
     {
@@ -39,29 +56,39 @@ namespace MyColleagueIsRobot.controls
             if (e.Data.GetDataPresent("Name"))
             {
                 String name = (String)e.Data.GetData("Name");
-                System.Diagnostics.Debug.WriteLine(name);
                 switch (name)
                 {
                     case "GoControl":
-                        ZmienneGlobalne.IdInstrukcji++;
-                        Panel.Children.Add(new InstructionContainer(new GoControl(), ZmienneGlobalne.IdInstrukcji,this));
-                        //Panel.Children.Add(new CommandTemplate("GoControl"));
+                        ZmienneGlobalne.ZwiększID();
+                        Panel.Children.Add(new InstructionContainer(new GoControl(), ZmienneGlobalne.IdInstrukcji, this));
                         break;
 
                     case "JumpControl":
-                        ZmienneGlobalne.IdInstrukcji++;
-                        Panel.Children.Add(new InstructionContainer(new JumpControl(),ZmienneGlobalne.IdInstrukcji,this));
-                       // Panel.Children.Add(new CommandTemplate("JumpControl"));
+                        ZmienneGlobalne.ZwiększID();
+                        Panel.Children.Add(new InstructionContainer(new JumpControl(), ZmienneGlobalne.IdInstrukcji, this));
                         break;
-                    
-                       
+
+                    case "IfControl":
+                        ZmienneGlobalne.ZwiększID();
+                        Panel.Children.Add(new InstructionContainer(new IfControl(), ZmienneGlobalne.IdInstrukcji, this));
+                        break;
+
+                    case "InteractControl":
+                        ZmienneGlobalne.ZwiększID();
+                        Panel.Children.Add(new InstructionContainer(new InteractControl(), ZmienneGlobalne.IdInstrukcji, this));
+                        break;
                 }
                 e.Effects = DragDropEffects.Copy;
             }
 
             e.Handled = true;
-            
-            
+        }
+
+        public void ClearPanel()
+        {
+            foreach (InstructionContainer child in Panel.Children)
+                ZmienneGlobalne.ZmniejszID();
+            Panel.Children.Clear();
         }
     }
 }

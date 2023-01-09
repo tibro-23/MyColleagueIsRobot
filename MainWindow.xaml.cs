@@ -37,9 +37,11 @@ namespace MyColleagueIsRobot
             contentFrame.Navigate(mainMenu);
         }
 
-        public void LoadGame()
+        public void LoadGame(int level)
         {
             contentFrame.Navigate(game);
+            game.level = new Level(level);
+            game.RestartLevel();
         }
 
         public void BackToMenu()

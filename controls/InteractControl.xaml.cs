@@ -1,7 +1,7 @@
 ﻿using MyColleagueIsRobot.Game_Interface;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.Data.Common;
 using System.Linq;
 using System.Media;
 using System.Text;
@@ -19,24 +19,23 @@ using System.Windows.Shapes;
 namespace MyColleagueIsRobot.controls
 {
     /// <summary>
-    /// Interaction logic for GoControl.xaml
+    /// Interaction logic for InteractControl.xaml
     /// </summary>
-    public partial class GoControl : UserControl, IKontrolkaInstrukcji
+    public partial class InteractControl : UserControl, IKontrolkaInstrukcji
     {
-        private static readonly SoundPlayer step_sound = new SoundPlayer(@"resources/music/step_sound.wav");
         private static readonly SoundPlayer command_sound = new SoundPlayer(@"resources/music/dropCommand_sound.wav");
         public Type? GoType { get; set; } = null;
-        public GoControl()
+        public InteractControl()
         {
             InitializeComponent();
             command_sound.Play();
         }
 
-        public GoControl(Type type)
+        public InteractControl(Type type)
         {
             InitializeComponent();
             GoType = type;
-            GoCommand.Content = type.Name;
+            InteractCommand.Content = type.Name;
         }
 
         public int WykonajRuch(Game game, int id)
@@ -44,48 +43,50 @@ namespace MyColleagueIsRobot.controls
             int x = Grid.GetColumn(game.playerControl);
             int y = Grid.GetRow(game.playerControl);
 
-            int mapx = game.Pole_Gry.ColumnDefinitions.Count;
-            int mapy = game.Pole_Gry.RowDefinitions.Count;
-
             String direction = ((ComboBoxItem)Direction.SelectedValue).Content as String;
 
-            ObiektMapy? obiekt;
+            ObiektMapy? obiekt = null;
             switch (direction)
             {
                 case "UP":
                     obiekt = game.IsObject(x, y - 1);
-                    if (y > 0 && (obiekt == null || (obiekt != null && obiekt.stawalne)))
-                    {
-                        Grid.SetRow(game.playerControl, y - 1);
-                        step_sound.Play();
-                    }
                     break;
                 case "DOWN":
                     obiekt = game.IsObject(x, y + 1);
-                    if (y < mapy && (obiekt == null || (obiekt != null && obiekt.stawalne)))
-                    {
-                        Grid.SetRow(game.playerControl, y + 1);
-                        step_sound.Play();
-                    }        
                     break;
                 case "LEFT":
                     obiekt = game.IsObject(x - 1, y);
-                    if (x > 0 && (obiekt == null || (obiekt != null && obiekt.stawalne)))
-                    {
-                        Grid.SetColumn(game.playerControl, x - 1);
-                        step_sound.Play();
-                    }
                     break;
                 case "RIGHT":
                     obiekt = game.IsObject(x + 1, y);
-                    if (x < mapx && (obiekt == null || (obiekt != null && obiekt.stawalne)))
-                    {
-                        Grid.SetColumn(game.playerControl, x + 1);
-                        step_sound.Play();
-                    }
                     break;
                 default:
                     break;
+            }
+
+            if (game.playerControl.wnetrze.Children.Count > 0) // jesli ma item w rece
+            {
+                if (obiekt != null && obiekt.wnetrze.Children.Count == 0)
+                {
+                    ObiektMapy? wnetrze = game.playerControl.wnetrze.Children[0] as ObiektMapy;
+                    if (wnetrze != null)
+                    {
+                        game.playerControl.wnetrze.Children.Remove(wnetrze);
+                        obiekt.wnetrze.Children.Add(wnetrze);
+                    }
+                }
+            }
+            else // jesli nie ma itemu w rece
+            {
+                if (obiekt != null && obiekt.wnetrze.Children.Count > 0)
+                {
+                    ObiektMapy? wnetrze = obiekt.wnetrze.Children[0] as ObiektMapy;
+                    if (wnetrze != null)
+                    {
+                        obiekt.wnetrze.Children.Remove(wnetrze);
+                        game.playerControl.wnetrze.Children.Add(wnetrze);
+                    }
+                }
             }
 
             return id + 1;
@@ -95,10 +96,10 @@ namespace MyColleagueIsRobot.controls
         {
             if (Direction.SelectedItem == null)
             {
-                GoCommand.Foreground = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                InteractCommand.Foreground = new SolidColorBrush(Color.FromRgb(255, 0, 0));
                 return false;
             }
-            GoCommand.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+            InteractCommand.Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0));
             return true;
         }
     }

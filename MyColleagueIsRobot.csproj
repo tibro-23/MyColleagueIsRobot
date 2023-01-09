@@ -5,36 +5,81 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="resources\images\back.png" />
-    <None Remove="resources\images\down_arrow.jpg" />
+    <None Remove="resources\images\down_arrow.png" />
+    <None Remove="resources\images\gold.png" />
     <None Remove="resources\images\grass_background.jpg" />
+    <None Remove="resources\images\kawa.png" />
     <None Remove="resources\images\kerfus_288px.png" />
+    <None Remove="resources\images\kerfus_original.png" />
     <None Remove="resources\images\menu_background.jpg" />
     <None Remove="resources\images\pole_gry.jpg" />
-    <None Remove="resources\images\up_arrow.jpg" />
+    <None Remove="resources\images\table.png" />
+    <None Remove="resources\images\up_arrow.png" />
     <None Remove="resources\music\background_music.mp3" />
     <None Remove="resources\music\background_music.wav" />
+    <None Remove="resources\music\click_sound.wav" />
+    <None Remove="resources\music\congrats_sound.wav" />
+    <None Remove="resources\music\dropCommand_sound.wav" />
     <None Remove="resources\music\sneaky-snitch.mp3" />
+    <None Remove="resources\music\step_sound.wav" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="resources\images\down_arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\images\gold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\images\kawa.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="resources\images\kerfus_288px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\images\kerfus_original.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\images\table.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\images\up_arrow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="resources\images\back.png" />
-    <Resource Include="resources\images\down_arrow.jpg" />
-    <Resource Include="resources\images\grass_background.jpg" />
-    <Resource Include="resources\images\menu_background.jpg" />
-    <Resource Include="resources\images\pole_gry.jpg" />
-    <Resource Include="resources\images\up_arrow.jpg" />
+    <Content Include="resources\images\back.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\images\grass_background.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\images\menu_background.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\images\pole_gry.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="resources\music\background_music.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\music\click_sound.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\music\congrats_sound.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\music\dropCommand_sound.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\music\step_sound.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

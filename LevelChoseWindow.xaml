@@ -1,0 +1,83 @@
+﻿<Window x:Class="MyColleagueIsRobot.LevelChoseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyColleagueIsRobot"
+        mc:Ignorable="d"
+        Title="LevelChoseWindow" Height="500" Width="400"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen">
+    <Border CornerRadius="20" BorderThickness="8">
+        <Border.BorderBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="Turquoise" Offset="0.0"/>
+                <GradientStop Color="Magenta" Offset="0.5"/>
+                <GradientStop Color="Aqua" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Border CornerRadius="8" BorderThickness="10">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="DimGray" Offset="0.0"/>
+                    <GradientStop Color="Gray" Offset="0.5"/>
+                    <GradientStop Color="DimGray" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="DimGray" Offset="0"/>
+                        <GradientStop Color="Gray" Offset="0.5"/>
+                        <GradientStop Color="DimGray" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <!-- przycisk close-->
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.RowSpan="3" Grid.ColumnSpan="3" Content="WYBIERZ POZIOM" Style="{StaticResource StandardLabel}" FontSize="33" VerticalContentAlignment="Bottom" FontFamily="Arial Black"/>
+                    <Grid Grid.Row="0" Grid.Column="2">
+                    <Button x:Name="close_button" Click="close_button_Click" Content="X" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+                    </Grid>
+                </Grid>
+                
+                <!-- Wybor poziomu-->
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="1" Grid.Column="0" x:Name="level1_button" Click="level1_button_Click" Content="POZIOM 1" Style="{StaticResource LevelCorner}" FontSize="23" FontFamily="Arial Black"/>
+                    <Button Grid.Row="3" Grid.Column="0" x:Name="level2_button" Click="level2_button_Click" Content="POZIOM 2" Style="{StaticResource LevelCorner}" FontSize="23" FontFamily="Arial Black"/>
+                    <Button Grid.Row="5" Grid.Column="0" x:Name="level3_button" Click="level3_button_Click"  Content="POZIOM 3" Style="{StaticResource LevelCorner}" FontSize="23" FontFamily="Arial Black"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

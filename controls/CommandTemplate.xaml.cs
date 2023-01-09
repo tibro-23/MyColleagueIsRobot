@@ -30,7 +30,7 @@ namespace MyColleagueIsRobot.controls
         {
             InitializeComponent();
             CommandType = name;
-            Komenda.Content = name;
+            Komenda.Content = name.Replace("Control", "");
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
