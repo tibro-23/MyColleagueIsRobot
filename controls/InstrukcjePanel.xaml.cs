@@ -18,7 +18,7 @@ using System.Windows.Shapes;
 namespace MyColleagueIsRobot.controls
 {
     /// <summary>
-    /// Interaction logic for InstrukcjePanel.xaml
+    /// Klasa reprezentująca stan panelu instrukcji
     /// </summary>
     class ZmienneGlobalne
     {
@@ -40,15 +40,23 @@ namespace MyColleagueIsRobot.controls
             ids.RemoveAt(idInstrukcji);
         }
     }
+
+    /// <summary>
+    /// Klasa listy instrukcji, z którego odpalana jest symulacja
+    /// </summary>
     public partial class InstrukcjePanel : UserControl
     {
-        
-
+        /// <summary>
+        /// Inicjalizuje listę instrukcji
+        /// </summary>
         public InstrukcjePanel()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Obsłużenie upuszczenia elementu na listę instrukcji
+        /// </summary>
         protected override void OnDrop(DragEventArgs e)
         {
             base.OnDrop(e);
@@ -84,6 +92,9 @@ namespace MyColleagueIsRobot.controls
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Usuwa wszystkie instrukcje z listy instrukcji
+        /// </summary>
         public void ClearPanel()
         {
             foreach (InstructionContainer child in Panel.Children)

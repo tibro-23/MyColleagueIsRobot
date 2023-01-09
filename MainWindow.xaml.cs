@@ -18,25 +18,34 @@ using System.Media;
 namespace MyColleagueIsRobot
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Główne okno gry
     /// </summary>
     public partial class MainWindow : Window
     {
         private MainMenu mainMenu { get; } = new MainMenu();
         private Game game { get; } = new Game();
+        /// <summary>
+        /// Konstruktor bezargumentowy. Po uruchomieniu od razu wczytuje menu główne
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
             LoadMenu();       
-            
         }
 
+        /// <summary>
+        /// Wczytuje i wyświetla stronę z menu głównym
+        /// </summary>
         public void LoadMenu()
         {
             contentFrame.Navigate(mainMenu);
         }
 
+        /// <summary>
+        /// Wczytuje i zmiena stronę na grę z wybranym poziomem
+        /// </summary>
+        /// <param name="level">Numer poziomu do wczytania</param>
         public void LoadGame(int level)
         {
             contentFrame.Navigate(game);
@@ -44,6 +53,9 @@ namespace MyColleagueIsRobot
             game.RestartLevel();
         }
 
+        /// <summary>
+        /// Wczytuje menu główne
+        /// </summary>
         public void BackToMenu()
         {
             contentFrame.Navigate(mainMenu);

@@ -16,30 +16,37 @@ using System.Media;
 namespace MyColleagueIsRobot
 {
     /// <summary>
-    /// Interaction logic for LevelChoseWindow.xaml
+    /// Okno wyboru poziomu do wczytania
     /// </summary>
-    /// 
-    //class xd
-    //{
-    //    public static int NumerPoziomu { get; set; }
-    //}
     public partial class LevelChoseWindow : Window
     {
         private static readonly SoundPlayer clickSound = new SoundPlayer(@"resources/music/click_sound.wav");
+
+        /// <summary>
+        /// Wybrany numer poziomu
+        /// </summary>
         public int NumerPoziomu { get; set; }
 
+        /// <summary>
+        /// Inicjalizuje okno z wyborem poziomu
+        /// </summary>
         public LevelChoseWindow()
         {
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Funkcja odpalana po wciśnięciu przycisku zamknięcia okna
+        /// </summary>
         private void close_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();
             DialogResult = true;
         }
 
+        /// <summary>
+        /// Wybranie poziomu nr 1
+        /// </summary>
         private void level1_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();
@@ -47,6 +54,9 @@ namespace MyColleagueIsRobot
             DialogResult = true;
         }
 
+        /// <summary>
+        /// Wybranie poziomu nr 2
+        /// </summary>
         private void level2_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();
@@ -54,6 +64,9 @@ namespace MyColleagueIsRobot
             DialogResult = true;
         }
 
+        /// <summary>
+        /// Wybranie poziomu nr 3
+        /// </summary>
         private void level3_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();

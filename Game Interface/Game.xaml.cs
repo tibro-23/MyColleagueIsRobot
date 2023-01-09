@@ -19,17 +19,30 @@ using System.Media;
 namespace MyColleagueIsRobot.Game_Interface
 {
     /// <summary>
-    /// Interaction logic for Game.xaml
+    /// Strona z interfejsem i logiką rozgrywki
     /// </summary>
     public partial class Game : Page
     {
         private static readonly SoundPlayer clickSound = new SoundPlayer(@"resources/music/click_sound.wav");
+
+        /// <summary>
+        /// Czy gra jest w trakcie symulacji
+        /// </summary>
         public bool IsRunning { get; private set; }
 
+        /// <summary>
+        /// Referencja do obiektu z danymi o wczytanym poziomie
+        /// </summary>
         public Level? level { get; set; } = null;
 
+        /// <summary>
+        /// Referencja do obiektu gracza na planszy
+        /// </summary>
         public Player playerControl { get; private set; } = new Player();
 
+        /// <summary>
+        /// Inicjalizuje interfejs rozgrywki. Dodaje dostępne komendy do panelu komend
+        /// </summary>
         public Game()
         {
             InitializeComponent();
@@ -39,6 +52,9 @@ namespace MyColleagueIsRobot.Game_Interface
             StakPanel.Children.Add(new CommandTemplate("InteractControl"));
         }
 
+        /// <summary>
+        /// Wraca do menu głównego. Przed powrotem do menu zatrzymuje rozgrywke
+        /// </summary>
         private async void back_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();
@@ -52,12 +68,18 @@ namespace MyColleagueIsRobot.Game_Interface
             }
         }
 
+        /// <summary>
+        /// Czyści panel z ułożonymi instrukcjami
+        /// </summary>
         private void clear_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound?.Play();
             instrukcjePanel.ClearPanel();
         }
 
+        /// <summary>
+        /// Rozpoczyna symulacje gry według ustawionych instrukcji
+        /// </summary>
         private async void start_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();
@@ -125,6 +147,9 @@ namespace MyColleagueIsRobot.Game_Interface
             }
         }
 
+        /// <summary>
+        /// Zatrzymuje symulacje rozgrywki
+        /// </summary>
         private async void stop_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();
@@ -133,6 +158,9 @@ namespace MyColleagueIsRobot.Game_Interface
             RestartLevel();
         }
 
+        /// <summary>
+        /// Wyświetla okno z treścią zadania
+        /// </summary>
         private void task_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();
@@ -145,6 +173,9 @@ namespace MyColleagueIsRobot.Game_Interface
             }
         }
 
+        /// <summary>
+        /// Przywraca stan początkowy poziomu
+        /// </summary>
         public void RestartLevel()
         {
             // usun obiekty
@@ -190,10 +221,10 @@ namespace MyColleagueIsRobot.Game_Interface
         ///<summary>
         /// Pobiera pierwszy obiekt typu ObiektMapy po numerze kolumny i wiersza na mapie
         ///</summary>
-        ///<param name="x">numer kolumny</param>
-        ///<param name="y">numer rzędu</param>
-        ///<param name="ignoreStawalne">czy ignorować stawalne ObiektyMapy</param>
-        ///<returns>pierwszy znaleziony obiekt mapy w danym miejscu, jeśli jest tam jakiś</returns>
+        ///<param name="x">Numer kolumny</param>
+        ///<param name="y">Numer rzędu</param>
+        ///<param name="ignoreStawalne">Czy ignorować stawalne ObiektyMapy</param>
+        ///<returns>Pierwszy znaleziony obiekt mapy w danym miejscu, jeśli jest tam jakiś</returns>
         public ObiektMapy? IsObject(int x, int y, bool ignoreStawalne = true)
         {
             foreach (UIElement child in Pole_Gry.Children)

@@ -78,9 +78,9 @@
     <Style x:Key="TextBlock" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="Padding" Value="0 0 0 0"/>
+        <Setter Property="Padding" Value="5 0 0 0"/>
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontFamily" Value="Comic Sans MS"/>
         <Setter Property="FontSize" Value="10"/>
         <Setter Property="FontWeight" Value="DemiBold"/>
         <Setter Property="Background" Value="Transparent"/>

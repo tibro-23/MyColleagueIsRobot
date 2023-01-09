@@ -16,16 +16,27 @@ using System.Windows.Shapes;
 namespace MyColleagueIsRobot.controls
 {
     /// <summary>
-    /// Interaction logic for CommandTemplate.xaml
+    /// Obiekt komendy do wyboru
     /// </summary>
     public partial class CommandTemplate : UserControl
     {
+        /// <summary>
+        /// Typ komendy, który reprezentuja dana instancja instrukcji
+        /// </summary>
         public String CommandType { get; set; } = "";
+
+        /// <summary>
+        /// Domyślny konstruktor
+        /// </summary>
         public CommandTemplate()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Inicjalizuje kontrolkę
+        /// </summary>
+        /// <param name="name">Nazwa instrukcji, którą reprezentuje</param>
         public CommandTemplate(String name)
         {
             InitializeComponent();
@@ -33,6 +44,9 @@ namespace MyColleagueIsRobot.controls
             Komenda.Content = name.Replace("Control", "");
         }
 
+        /// <summary>
+        /// Funkcja inicjalizująca przeciąganie myszką
+        /// </summary>
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);

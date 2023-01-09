@@ -23,13 +23,25 @@ namespace MyColleagueIsRobot.controls
     public partial class IfControl : UserControl, IKontrolkaInstrukcji
     {
         private static readonly SoundPlayer command_sound = new SoundPlayer(@"resources/music/dropCommand_sound.wav");
+
+        /// <summary>
+        /// Typ instrukcji do stworzenia po przeciągnięciu
+        /// </summary>
         public Type? IfType { get; set; } = null;
+
+        /// <summary>
+        /// Konstruktor bezargumentowy
+        /// </summary>
         public IfControl()
         {
             InitializeComponent();
             command_sound.Play();
         }
 
+        /// <summary>
+        /// Konstruktor z podanym typem instrukcji
+        /// </summary>
+        /// <param name="type">Typ instrukcji</param>
         public IfControl(Type type)
         {
             InitializeComponent();
@@ -37,6 +49,12 @@ namespace MyColleagueIsRobot.controls
             IfCommand.Content = type.Name;
         }
 
+        /// <summary>
+        /// Funkcjonalność danej instrukcji
+        /// </summary>
+        /// <param name="game">Referencja do instancji rozgrywki</param>
+        /// <param name="id">Referencja nr instrukcji w panelu instrukcji</param>
+        /// <returns>Numer instrukcji, którą gra powinna wykonać następną</returns>
         public int WykonajRuch(Game game, int id)
         {
             String direction = ((ComboBoxItem)Direction.SelectedValue).Content as String;
@@ -85,6 +103,10 @@ namespace MyColleagueIsRobot.controls
             return -1;
         }
 
+        /// <summary>
+        /// Sprawdza czy wszystkie pola są wybrane w instrukcji
+        /// </summary>
+        /// <returns>Czy wszystkie pola są ustawione</returns>
         public bool CzyJestUstawiony()
         {
             if (Direction.SelectedItem == null)

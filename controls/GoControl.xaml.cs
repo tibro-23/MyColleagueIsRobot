@@ -25,13 +25,25 @@ namespace MyColleagueIsRobot.controls
     {
         private static readonly SoundPlayer step_sound = new SoundPlayer(@"resources/music/step_sound.wav");
         private static readonly SoundPlayer command_sound = new SoundPlayer(@"resources/music/dropCommand_sound.wav");
+
+        /// <summary>
+        /// Typ instrukcji do stworzenia po przeciągnięciu
+        /// </summary>
         public Type? GoType { get; set; } = null;
+
+        /// <summary>
+        /// Konstruktor bezargumentowy
+        /// </summary>
         public GoControl()
         {
             InitializeComponent();
             command_sound.Play();
         }
 
+        /// <summary>
+        /// Konstruktor z podanym typem instrukcji
+        /// </summary>
+        /// <param name="type">Typ instrukcji</param>
         public GoControl(Type type)
         {
             InitializeComponent();
@@ -39,6 +51,12 @@ namespace MyColleagueIsRobot.controls
             GoCommand.Content = type.Name;
         }
 
+        /// <summary>
+        /// Funkcjonalność danej instrukcji
+        /// </summary>
+        /// <param name="game">Referencja do instancji rozgrywki</param>
+        /// <param name="id">Referencja nr instrukcji w panelu instrukcji</param>
+        /// <returns>Numer instrukcji, którą gra powinna wykonać następną</returns>
         public int WykonajRuch(Game game, int id)
         {
             int x = Grid.GetColumn(game.playerControl);
@@ -91,6 +109,10 @@ namespace MyColleagueIsRobot.controls
             return id + 1;
         }
 
+        /// <summary>
+        /// Sprawdza czy wszystkie pola są wybrane w instrukcji
+        /// </summary>
+        /// <returns>Czy wszystkie pola są ustawione</returns>
         public bool CzyJestUstawiony()
         {
             if (Direction.SelectedItem == null)

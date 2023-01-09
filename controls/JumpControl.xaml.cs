@@ -18,18 +18,30 @@ using System.Windows.Shapes;
 namespace MyColleagueIsRobot.controls
 {
     /// <summary>
-    /// Interaction logic for JumpControl.xaml
+    /// Kontrolka komendy skoku do instrukcji
     /// </summary>
     public partial class JumpControl : UserControl, IKontrolkaInstrukcji
     {
         private static readonly SoundPlayer command_sound = new SoundPlayer(@"resources/music/dropCommand_sound.wav");
+
+        /// <summary>
+        /// Typ instrukcji do stworzenia po przeciągnięciu
+        /// </summary>
         public Type? JumpType { get; set; } = null;
+
+        /// <summary>
+        /// Konstruktor bezargumentowy
+        /// </summary>
         public JumpControl()
         {
             InitializeComponent();
             command_sound.Play();
         }
 
+        /// <summary>
+        /// Konstruktor z podanym typem instrukcji
+        /// </summary>
+        /// <param name="type">Typ instrukcji</param>
         public JumpControl(Type type)
         {
             InitializeComponent();
@@ -37,11 +49,21 @@ namespace MyColleagueIsRobot.controls
             JumpCommand.Content = type.Name;
         }
 
+        /// <summary>
+        /// Funkcjonalność danej instrukcji
+        /// </summary>
+        /// <param name="game">Referencja do instancji rozgrywki</param>
+        /// <param name="id">Referencja nr instrukcji w panelu instrukcji</param>
+        /// <returns>Numer instrukcji, którą gra powinna wykonać następną</returns>
         public int WykonajRuch(Game game, int id)
         {
             return (int)Destination.SelectedValue;
         }
 
+        /// <summary>
+        /// Sprawdza czy wszystkie pola są wybrane w instrukcji
+        /// </summary>
+        /// <returns>Czy wszystkie pola są ustawione</returns>
         public bool CzyJestUstawiony()
         {
             if (Destination.SelectedItem == null)

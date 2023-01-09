@@ -16,10 +16,13 @@ using System.Windows.Shapes;
 namespace MyColleagueIsRobot.controls
 {
     /// <summary>
-    /// Interaction logic for Player.xaml
+    /// Klasa reprezentująca postać gracza
     /// </summary>
     public partial class Player : UserControl
     {
+        /// <summary>
+        /// Inicjalizuje wizualizacje gracza
+        /// </summary>
         public Player()
         {
             InitializeComponent();

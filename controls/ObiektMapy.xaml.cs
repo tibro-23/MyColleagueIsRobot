@@ -17,17 +17,29 @@ using System.Windows.Shapes;
 namespace MyColleagueIsRobot.controls
 {
     /// <summary>
-    /// Interaction logic for ObiektMapy.xaml
+    /// Klasa reprezentująca nieożywiony obiekt na planszy
     /// </summary>
     public partial class ObiektMapy : UserControl
     {
+        /// <summary>
+        /// Czy gracz może stanąć na danym obiekcie
+        /// </summary>
         public bool stawalne { get; private set; }
+
+        /// <summary>
+        /// Inicjalizuje instancje obiektu mapy
+        /// </summary>
+        /// <param name="stawalne">Czy można stanąć na danym obiekcie</param>
         public ObiektMapy(bool stawalne = false)
         {
             InitializeComponent();
             this.stawalne = stawalne;
         }
 
+        /// <summary>
+        /// Tworzy kopie istniejącego obiektu mapy
+        /// </summary>
+        /// <param name="om">Obiekt, który ma być skopiowany</param>
         public ObiektMapy(ObiektMapy om)
         {
             InitializeComponent();

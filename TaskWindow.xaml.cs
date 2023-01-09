@@ -16,16 +16,24 @@ using System.Media;
 namespace MyColleagueIsRobot
 {
     /// <summary>
-    /// Interaction logic for TaskWindow.xaml
+    /// Okno dialogowe z treścią zadania
     /// </summary>
     public partial class TaskWindow : Window
     {
         private static readonly SoundPlayer clickSound = new SoundPlayer(@"resources/music/click_sound.wav");
+        /// <summary>
+        /// Domyślny konstruktor bez arugmentów
+        /// </summary>
         public TaskWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Konstruktor z ustawieniem tytułu i opisu treści zadania
+        /// </summary>
+        /// <param name="title">Tytuł zadania</param>
+        /// <param name="description">Treść zadania</param>
         public TaskWindow(string title, string description)
         {
             InitializeComponent();
@@ -33,6 +41,9 @@ namespace MyColleagueIsRobot
             descriptionText.Text = description;
         }
 
+        /// <summary>
+        /// Funkcja odpalana przy kliknięciu zamknięcia okna dialogowego z treścią zadania. Zamyka okno z treścią
+        /// </summary>
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();

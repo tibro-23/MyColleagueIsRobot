@@ -18,16 +18,23 @@ using System.Media;
 namespace MyColleagueIsRobot.Game_Interface
 {
     /// <summary>
-    /// Interaction logic for MainMenu.xaml
+    /// Strona z menu głównym
     /// </summary>
     public partial class MainMenu : Page
     {
         private static readonly SoundPlayer clickSound = new SoundPlayer(@"resources/music/click_sound.wav");
+
+        /// <summary>
+        /// Inicjalizuje menu główne
+        /// </summary>
         public MainMenu()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Zamknięcie menu głównego. Powoduje powrót do ekranu tytułowego
+        /// </summary>
         private void exit_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();
@@ -36,6 +43,9 @@ namespace MyColleagueIsRobot.Game_Interface
                 mainWindow.Close();
         }
 
+        /// <summary>
+        /// Wyświetla okno z wyborem poziomu. Po wybraniu poziomu, wczytuje wybrany poziom
+        /// </summary>
         private void new_game_button_Click(object sender, RoutedEventArgs e)
         {
             clickSound.Play();

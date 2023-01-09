@@ -13,22 +13,60 @@ using System.Windows.Media.Imaging;
 
 namespace MyColleagueIsRobot.Game_Interface
 {
+    /// <summary>
+    /// Zawiera wszystkie potrzebne informacje o poziomie
+    /// </summary>
     public class Level
     {
         private BitmapImage biurko = new BitmapImage(new Uri("/resources/images/table.png", UriKind.Relative));
         private BitmapImage kawa = new BitmapImage(new Uri("/resources/images/kawa.png", UriKind.Relative));
         private BitmapImage złota_kratka = new BitmapImage(new Uri("/resources/images/gold.png", UriKind.Relative));
 
+        /// <summary>
+        /// Numer identyfikujący poziom
+        /// </summary>
         public int LevelNumber { get; }
+
+        /// <summary>
+        /// Kolumna w której zaczyna postać gracza
+        /// </summary>
         public int PlayerStartX { get; }
+
+        /// <summary>
+        /// Wiersz w którym zaczyna postać gracza
+        /// </summary>
         public int PlayerStartY { get; }
+
+        /// <summary>
+        /// Funkcja sprawdzająca warunki ukończenia poziomu
+        /// </summary>
         public Func<Game, int, int> LevelFunction { get; }
+
+        /// <summary>
+        /// Numer stanu dla którego poziom zostaje ukończony
+        /// </summary>
         public int FinishedState { get; }
+
+        /// <summary>
+        /// Tytuł poziomu. Jest wyświetlany w oknie z treścią zadania
+        /// </summary>
         public string Title { get; }
+
+        /// <summary>
+        /// Opis zadania dla danego poziomu. Jest wyświetlany w oknie z treścią zadania
+        /// </summary>
         public string Description { get; }
+
+        /// <summary>
+        /// Lista przechowująca informację o wszystkich obiektach znajdujących się na planszy, które nie są graczem
+        /// </summary>
         public List<ObiektMapy> LevelStaticObjects { get { return levelStaticObjectsSource.Select(om => new ObiektMapy(om)).ToList(); } }
         private List<ObiektMapy> levelStaticObjectsSource { get; set; }
 
+        /// <summary>
+        /// Konstruktor inicjalizujący dane o konkretnym poziomie
+        /// </summary>
+        /// <param name="level">Wybrany poziom</param>
         public Level(int level)
         {
             switch (level)
@@ -36,7 +74,8 @@ namespace MyColleagueIsRobot.Game_Interface
                 case 3:
                     LevelNumber = 3;
                     Title = "Elektruś dostarcza kawę";
-                    Description = "Pomóż elektrusiowi wykonać bardzo ważne zlecone od samego szefa, czyli przynieść kawę do jego biurka";
+                    Description = "To już trzeci dzień pracy. Elektruś dostał zlecenie, aby zanieść kawę ze swojego biurka do biurka kolegi z pracy. Ułóż instrukcję w taki sposób aby poprawnie wykonał zlecone mu zadanie. \n" +
+                        "Powodzenia!";
                     PlayerStartX = 6;
                     PlayerStartY = 0;
                     FinishedState = 2;
@@ -51,8 +90,10 @@ namespace MyColleagueIsRobot.Game_Interface
                     break;
                 case 2: // level 2
                     LevelNumber = 2;
-                    Title = "Elektruś slalom po biurze jak szef";
-                    Description = "Pomóż elektrusiowi przejść do prawego dolnego rogu w tym labiryncie korporacyjnego piekła.";
+                    Title = "Elektruś - Przerwa Obiadowa";
+                    Description = "Jak dobrze wiesz w pracy potrzebna jest przerwa dlatego i Elektruś potrzebuje chwili aby podładować swoje baterie. Pomóż Elektrusiowi pokonać labirynt kroporacyjnego piekła, aby zdążył na przerwę zanim się skończy! \n" +
+                        "Twoim zadaniem jest ułożenie odpowiedniej listy instrukcji tak aby udało mu się przejść na złote pole. \n" +
+                        "Powodzenia!";
                     PlayerStartX = 0;
                     PlayerStartY = 5;
                     FinishedState = 1;
@@ -88,8 +129,11 @@ namespace MyColleagueIsRobot.Game_Interface
                     break;
                 default: // level 1
                     LevelNumber = 1;
-                    Title = "Elektruś awakening";
-                    Description = "Pójdź na dół i wróć na górę.";
+                    Title = "Nowy kolega w pracy";
+                    Description = "Firma zleciła ci zadanie. Musisz nauczyć nowego pracownika pracy w biurze. \n" +
+                        "Poznaj swojego nowego kolegę - to Elektruś czyli świeży absolwent Politechniki Gdańskiej. \n" +
+                        "Jeszcze nie potrafi wielu rzeczy, ale szybko sę uczy! Pomóż mu przejść z góry na dół, a następnie wrócić na pozycję początkową. \n" +
+                        "Powodzenia!";
                     PlayerStartX = 3;
                     PlayerStartY = 0;
                     FinishedState = 2;
@@ -109,6 +153,15 @@ namespace MyColleagueIsRobot.Game_Interface
             }
         }
 
+        /// <summary>
+        /// Tworzy instancje obiektu znajdującego się na mapie
+        /// </summary>
+        /// <param name="image">Wyświetlany obrazek obiektu</param>
+        /// <param name="column">Kolumna w której znajduje się obiekt</param>
+        /// <param name="row">Rząd w którym znajduje się obiekt</param>
+        /// <param name="stawalne">Czy gracz może stanąć na polu z tym obiektem</param>
+        /// <param name="inside">Obrazek obiektu w środku, jeśli ma mieć obiekt w środku</param>
+        /// <returns></returns>
         private ObiektMapy CreateMapObject (ImageSource image, int column, int row, bool stawalne = false, ImageSource inside = null)
         {
             ObiektMapy obj = new ObiektMapy(stawalne);
